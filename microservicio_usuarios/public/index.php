@@ -1,13 +1,18 @@
 <?php
 
 use Slim\Factory\AppFactory;
-use DI\Container;
+use DI\ContainerBuilder;
 use Illuminate\Database\Capsule\Manager as Capsule;
+use Dotenv\Dotenv;
 
-require _DIR_ . '/../vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
-$container = new Container();
+
+$containerBuilder = new ContainerBuilder();
+$container = $containerBuilder->build();
+
 AppFactory::setContainer($container);
+
 
 $app = AppFactory::create();
 
@@ -18,8 +23,7 @@ $app->add(function ($req, $handler) {
         ->withHeader("Access-Control-Allow-Headers", "Content-Type, Authorization")
         ->withHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
 });
-
-$dotenv = Dotenv\Dotenv::createImmutable(_DIR_ . '/../');
+$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
 
 $capsule = new Capsule;
@@ -38,6 +42,7 @@ $capsule->addConnection([
 $capsule->setAsGlobal();
 $capsule->bootEloquent();
 
-require _DIR_ . '/../src/routes.php';
+
+require __DIR__ . '/../src/routes.php';
 
 $app->run();
