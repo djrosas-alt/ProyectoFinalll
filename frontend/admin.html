@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Administrador</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<div class="header">
+    <h2>Panel Administrador</h2>
+    <button onclick="logout()">Cerrar sesión</button>
+</div>
+
+<h3>Todos los Tickets</h3>
+
+<table id="tablaTickets">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Estado</th>
+            <th>Gestor</th>
+            <th>Admin</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script src="js/api.js"></script>
+<script src="js/admin.js"></script>
+
+</body>
+</html>

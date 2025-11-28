@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle Ticket</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<div class="header">
+    <h2>Detalle del Ticket</h2>
+    <button onclick="logout()">Cerrar sesión</button>
+</div>
+
+<div id="infoTicket"></div>
+
+<h3>Historial</h3>
+<div id="actividad"></div>
+
+<h3>Agregar comentario</h3>
+<textarea id="mensaje" placeholder="Escribe un comentario..."></textarea>
+<button onclick="agregarComentario()">Enviar</button>
+
+<script src="js/api.js"></script>
+<script src="js/ticket.js"></script>
+
+</body>
+</html>
